@@ -10,7 +10,7 @@ Get the wasm data https://highstakes.fra1.digitaloceanspaces.com/wasm.tar.lz4 an
 In `config.toml` change
 
 ```
-persistent_peers = "" # make sure you have a cnx to our node
+persistent_peers = "98efc6235550849fb04b50c890bf720c711a128b@144.2.71.66:30656" # make sure you have a cnx to our node
 
 [statesync]
 enable = true
