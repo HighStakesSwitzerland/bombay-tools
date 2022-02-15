@@ -3,7 +3,7 @@
 ## How to
 
 ### 1/
-Get the wasm data in this repo and extract it to `~/.terra/data/wasm`
+Get the wasm data https://highstakes.fra1.digitaloceanspaces.com/wasm.tar.lz4 and extract it to `~/.terra/data/wasm`
 
 ### 2/
 
@@ -15,9 +15,9 @@ persistent_peers = "" # make sure you have a cnx to our node
 [statesync]
 enable = true
 
-rpc_servers = "144.2.71.66:30657,144.2.71.66:30657"
+rpc_servers = "terran.stakers.finance:30657,terran.stakers.finance:30657"
 trust_height = the_choosed_block_height
-trust_hash = "block_hash"
+trust_hash = "block_height"
 trust_period = "168h0m0s"
 ```
 
@@ -32,11 +32,11 @@ To get the `trust_hash` use the public lcd: https://bombay-lcd.terra.dev/blocks/
     ...
 ```
 
-In `app.toml` set `halt-height` to the same block height + 1. This is important or your node will corrupt the db after finishing the restore!
+In `app.toml` set `halt-height` to the same block height. This is important or your node will corrupt the db after finishing the restore!
 
-###3/
-Start it, it should download and apply the snapshot. This step takes a very long time and consumes a LOT of memory (32GB recommended, or a lot of swap if you're not in a hurry)
+### 3/
+Start it, it should download and apply the snapshot. This step takes a very long time and consumes a LOT of memory. 
 If it fails, remove all `.terra/data` folder EXCEPT `wasm`, and restart it.
 
-###4/
+### 4/
 Once the snapshot is restored, the node will shutdown because of `halt-height`. Change back this value to 0, add your seeds and persistent_peers, and you're good to go!
